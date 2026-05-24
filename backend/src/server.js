@@ -4,6 +4,8 @@ import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
 import rateLimiter from "./middleware/rateLimiter.js";
 
+import cors from "cors"
+
 dotenv.config();
 
 const app = express();
@@ -26,8 +28,14 @@ const startServer = async () => {
 startServer();
 
 //middleware
+app.use(cors({
+  origin: "http://localhost:5173",
+}
+));
 app.use(express.json()); //this method will parse JSON bodies:req.body ...basically it helps  us to access the req.body
 app.use(rateLimiter);
+
+
 
 //our simple custom middleware
 // app.use((req, res, next) => {
