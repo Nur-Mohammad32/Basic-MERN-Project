@@ -1,12 +1,16 @@
-import React from 'react'
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
+import RateLimitedUI from "../components/RateLimitedUI";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar/>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-base-100 text-base-content">
+      <Navbar />
 
-export default HomePage
+      <main className="max-w-6xl px-4 pt-6 mx-auto">
+        <RateLimitedUI />
+      </main>
+    </div>
+  );
+};
+
+export default HomePage;
